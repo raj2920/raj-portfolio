@@ -1,1 +1,1205 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bittu Kumar | 4D Quantum Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        :root {
+            --primary: #00f3ff;
+            --secondary: #9d00ff;
+            --accent: #ff00c8;
+            --dark: #0a0a14;
+            --darker: #050510;
+            --light: #ffffff;
+            --neon-glow: 0 0 20px var(--primary), 0 0 40px var(--secondary);
+            --grid-color: rgba(0, 243, 255, 0.1);
+        }
+
+        body {
+            background: var(--darker);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(45deg, var(--grid-color) 1px, transparent 1px),
+                linear-gradient(-45deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-attachment: fixed;
+        }
+
+        /* Quantum Particles Canvas */
+        #quantum-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        /* 4D Hypercube Container */
+        .hypercube-container {
+            position: fixed;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Navigation - 4D Style */
+        .nav-4d {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(5, 5, 16, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            box-shadow: var(--neon-glow);
+        }
+
+        .logo-quantum {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: glitch 3s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            1% { transform: translate(-2px, 2px); }
+            2% { transform: translate(-1px, -1px); }
+            3% { transform: translate(2px, 1px); }
+            4% { transform: translate(1px, -2px); }
+            5% { transform: translate(-1px, 2px); }
+            6% { transform: translate(2px, -1px); }
+            7% { transform: translate(-2px, 1px); }
+            8% { transform: translate(1px, 1px); }
+            9% { transform: translate(-1px, -1px); }
+            10% { transform: translate(0); }
+        }
+
+        .nav-links-4d {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-link-4d {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .nav-link-4d::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .nav-link-4d:hover {
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+        }
+
+        .nav-link-4d:hover::before {
+            width: 100%;
+        }
+
+        .hamburger-4d {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* 4D Hero Section */
+        .hero-4d {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content-4d {
+            flex: 1;
+            max-width: 700px;
+            z-index: 10;
+        }
+
+        .hero-title-4d {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(157, 0, 255, 0.5);
+            animation: titleGlow 4s infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 20px rgba(0, 243, 255, 0.5); }
+            100% { text-shadow: 0 0 40px rgba(157, 0, 255, 0.8); }
+        }
+
+        .hero-subtitle-4d {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+
+        .typewriter {
+            border-right: 3px solid var(--primary);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary) }
+        }
+
+        .hero-description-4d {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            position: relative;
+            padding-left: 2rem;
+            border-left: 3px solid var(--primary);
+        }
+
+        .cta-buttons-4d {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .btn-4d {
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-4d::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+            z-index: -1;
+        }
+
+        .btn-4d:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary-4d {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.4);
+        }
+
+        .btn-secondary-4d {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+        }
+
+        .btn-4d:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 243, 255, 0.6);
+        }
+
+        /* 4D Photo Portal */
+        .photo-portal-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .photo-portal {
+            width: 400px;
+            height: 500px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: portalSpin 20s linear infinite;
+        }
+
+        @keyframes portalSpin {
+            0% { transform: rotateY(0deg) rotateX(5deg); }
+            100% { transform: rotateY(360deg) rotateX(5deg); }
+        }
+
+        .portal-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid;
+            border-radius: 50%;
+            animation: ringPulse 4s ease-in-out infinite;
+        }
+
+        .ring-1 { border-color: var(--primary); top: 0; left: 0; animation-delay: 0s; }
+        .ring-2 { border-color: var(--secondary); top: 10px; left: 10px; animation-delay: 0.5s; }
+        .ring-3 { border-color: var(--accent); top: 20px; left: 20px; animation-delay: 1s; }
+
+        @keyframes ringPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .photo-hologram {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 350px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                inset 0 0 50px rgba(0, 243, 255, 0.3),
+                0 0 60px rgba(157, 0, 255, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .my-hologram-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            filter: hue-rotate(0deg);
+            animation: hueRotate 10s infinite linear;
+            transition: all 0.5s ease;
+        }
+
+        @keyframes hueRotate {
+            0% { filter: hue-rotate(0deg) contrast(1.1) brightness(1.1); }
+            100% { filter: hue-rotate(360deg) contrast(1.1) brightness(1.1); }
+        }
+
+        .photo-hologram::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(0, 243, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: hologramScan 3s linear infinite;
+        }
+
+        @keyframes hologramScan {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 4D Sections */
+        .section-4d {
+            padding: 8rem 10%;
+            position: relative;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        .section-title-4d {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 4rem;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title-4d::before,
+        .section-title-4d::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 2rem;
+            animation: starPulse 2s infinite;
+        }
+
+        .section-title-4d::before {
+            left: -60px;
+        }
+
+        .section-title-4d::after {
+            right: -60px;
+        }
+
+        @keyframes starPulse {
+            0%, 100% { opacity: 0.3; transform: translateY(-50%) scale(1); }
+            50% { opacity: 1; transform: translateY(-50%) scale(1.3); }
+        }
+
+        /* 4D Grid Layout */
+        .grid-4d {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .card-4d {
+            background: rgba(10, 10, 20, 0.7);
+            border-radius: 25px;
+            padding: 2.5rem;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .card-4d::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .card-4d:hover {
+            transform: translateY(-20px) rotateX(5deg);
+            box-shadow: 
+                0 20px 50px rgba(0, 243, 255, 0.3),
+                inset 0 0 30px rgba(157, 0, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .card-title-4d {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card-title-4d i {
+            font-size: 2rem;
+        }
+
+        /* 4D Timeline */
+        .timeline-4d {
+            position: relative;
+            max-width: 1000px;
+            margin: 4rem auto;
+        }
+
+        .timeline-4d::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .timeline-item-4d {
+            margin-bottom: 4rem;
+            position: relative;
+            width: 45%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .timeline-item-4d.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item-4d:nth-child(odd) {
+            margin-left: 0;
+            margin-right: auto;
+            padding-right: 4rem;
+            text-align: right;
+        }
+
+        .timeline-item-4d:nth-child(even) {
+            margin-left: auto;
+            margin-right: 0;
+            padding-left: 4rem;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .timeline-item-4d:nth-child(odd) .timeline-dot {
+            right: -12px;
+        }
+
+        .timeline-item-4d:nth-child(even) .timeline-dot {
+            left: -12px;
+        }
+
+        /* 4D Skill Orbs */
+        .skills-orb-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-orb {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(10, 10, 20, 0.8);
+            border: 2px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+        }
+
+        .skill-orb:hover {
+            transform: scale(1.2) rotateY(180deg);
+            box-shadow: 0 0 50px var(--primary);
+        }
+
+        .skill-orb i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* 4D Contact Matrix */
+        .contact-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .matrix-cell {
+            background: rgba(10, 10, 20, 0.7);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .matrix-cell:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.3);
+        }
+
+        /* 4D Footer */
+        .footer-4d {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(5, 5, 16, 0.9);
+            border-top: 1px solid rgba(0, 243, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-4d::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.05), transparent);
+            animation: footerScan 6s linear infinite;
+        }
+
+        @keyframes footerScan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-4d {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 150px;
+            }
+            
+            .hero-content-4d {
+                margin-bottom: 4rem;
+            }
+            
+            .photo-portal {
+                width: 350px;
+                height: 450px;
+            }
+            
+            .photo-hologram {
+                width: 250px;
+                height: 320px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links-4d {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                flex-direction: column;
+                background: rgba(5, 5, 16, 0.95);
+                width: 100%;
+                text-align: center;
+                padding: 2rem 0;
+                transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(0, 243, 255, 0.2);
+            }
+            
+            .nav-links-4d.active {
+                right: 0;
+            }
+            
+            .hamburger-4d {
+                display: block;
+            }
+            
+            .hero-title-4d {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle-4d {
+                font-size: 1.5rem;
+            }
+            
+            .section-title-4d {
+                font-size: 2.5rem;
+            }
+            
+            .section-title-4d::before,
+            .section-title-4d::after {
+                display: none;
+            }
+            
+            .timeline-4d::before {
+                left: 30px;
+            }
+            
+            .timeline-item-4d {
+                width: 100%;
+                padding-left: 60px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            
+            .timeline-item-4d:nth-child(odd) .timeline-dot,
+            .timeline-item-4d:nth-child(even) .timeline-dot {
+                left: 18px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Quantum Canvas -->
+    <canvas id="quantum-canvas"></canvas>
+    
+    <!-- 4D Navigation -->
+    <nav class="nav-4d">
+        <div class="logo-quantum">Bittu<span style="color: var(--accent);">::</span>Kumar</div>
+        <div class="hamburger-4d" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links-4d" id="navLinks">
+            <a href="#home" class="nav-link-4d">Home</a>
+            <a href="#about" class="nav-link-4d">About</a>
+            <a href="#skills" class="nav-link-4d">Skills</a>
+            <a href="#projects" class="nav-link-4d">Projects</a>
+            <a href="#education" class="nav-link-4d">Education</a>
+            <a href="#contact" class="nav-link-4d">Contact</a>
+        </div>
+    </nav>
+    
+    <!-- 4D Hero Section -->
+    <section class="hero-4d" id="home">
+        <div class="hero-content-4d">
+            <h1 class="hero-title-4d">Quantum Developer</h1>
+            <h2 class="hero-subtitle-4d typewriter">Bittu Kumar</h2>
+            <p class="hero-description-4d">
+                Visionary Computer Science Engineer specializing in quantum-inspired development, 
+                AI integration, and cloud-native solutions. Transforming complex problems into 
+                elegant digital experiences through cutting-edge technology.
+            </p>
+            <div class="cta-buttons-4d">
+                <a href="#contact" class="btn-4d btn-primary-4d">
+                    <i class="fas fa-rocket"></i>Launch Connection
+                </a>
+                <a href="#projects" class="btn-4d btn-secondary-4d">
+                    <i class="fas fa-eye"></i>View Projects
+                </a>
+            </div>
+        </div>
+        <div class="photo-portal-container">
+            <div class="photo-portal">
+                <div class="portal-ring ring-1"></div>
+                <div class="portal-ring ring-2"></div>
+                <div class="portal-ring ring-3"></div>
+                <div class="photo-hologram" id="hologramContainer">
+                    <!-- Photo will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="section-4d" id="about">
+        <h2 class="section-title-4d">Quantum Profile</h2>
+        <div class="grid-4d">
+            <div class="card-4d">
+                <h3 class="card-title-4d"><i class="fas fa-bullseye"></i> Mission Objective</h3>
+                <p>To obtain a challenging software development position that utilizes my programming skills and knowledge to design, develop, and implement innovative software solutions.</p>
+                <p>Seeking a software engineer role in a reputable organization where I can apply my technical skills to contribute to the development of cutting-edge software products.</p>
+            </div>
+            <div class="card-4d">
+                <h3 class="card-title-4d"><i class="fas fa-id-badge"></i> Digital Identity</h3>
+                <p><strong>Location:</strong> New Delhi, India</p>
+                <p><strong>Email:</strong> bittuk292021@gmail.com</p>
+                <p><strong>Quantum Link:</strong> +91 9608520740</p>
+                <p><strong>Network Node:</strong> linkedin.com/in/rq-64757121a</p>
+                <p><strong>Academic Status:</strong> B.Tech CSE Graduate (2024)</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section class="section-4d" id="skills">
+        <h2 class="section-title-4d">Quantum Skills</h2>
+        <div class="skills-orb-container">
+            <div class="skill-orb">
+                <i class="fab fa-python"></i>
+                <span>Python AI</span>
+            </div>
+            <div class="skill-orb">
+                <i class="fas fa-cloud"></i>
+                <span>AWS Cloud</span>
+            </div>
+            <div class="skill-orb">
+                <i class="fas fa-brain"></i>
+                <span>Machine Learning</span>
+            </div>
+            <div class="skill-orb">
+                <i class="fas fa-database"></i>
+                <span>DBMS</span>
+            </div>
+            <div class="skill-orb">
+                <i class="fas fa-network-wired"></i>
+                <span>Networking</span>
+            </div>
+            <div class="skill-orb">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Flutter</span>
+            </div>
+        </div>
+        
+        <h2 class="section-title-4d" style="margin-top: 6rem;">Certifications</h2>
+        <div class="grid-4d">
+            <div class="card-4d">
+                <h3 class="card-title-4d"><i class="fab fa-aws"></i> AWS Cloud</h3>
+                <p><strong>Authority:</strong> AICTE</p>
+                <p>Virtual Internship program on cloud Technology supported by Amazon Web Services (AWS)</p>
+            </div>
+            <div class="card-4d">
+                <h3 class="card-title-4d"><i class="fas fa-network-wired"></i> CCNAv7</h3>
+                <p><strong>Authority:</strong> Cisco</p>
+                <p>Introduction to Networks course completion with student level credential</p>
+            </div>
+            <div class="card-4d">
+                <h3 class="card-title-4d"><i class="fas fa-server"></i> Juniper Networks</h3>
+                <p><strong>Authority:</strong> AICTE (Eduskills)</p>
+                <p>Networking certification through AICTE's Eduskills program</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section class="section-4d" id="projects">
+        <h2 class="section-title-4d">Quantum Projects</h2>
+        <div class="timeline-4d">
+            <div class="timeline-item-4d">
+                <div class="timeline-dot"></div>
+                <div class="card-4d">
+                    <h3 class="card-title-4d"><i class="fab fa-whatsapp"></i> WhatsApp Chat Analysis</h3>
+                    <p class="date">Dec 2022 - Jun 2024</p>
+                    <p>A quantum analysis tool for WhatsApp chat data using Python modules (pandas, matplotlib, seaborn) with sentiment analysis. Features include data visualization and Flutter application integration.</p>
+                    <p><strong>Tech Stack:</strong> Python, Pandas, Matplotlib, Seaborn, Flutter, Sentiment Analysis</p>
+                </div>
+            </div>
+            <div class="timeline-item-4d">
+                <div class="timeline-dot"></div>
+                <div class="card-4d">
+                    <h3 class="card-title-4d"><i class="fas fa-cloud"></i> AWS Cloud Virtual Internship</h3>
+                    <p class="date">Jul 2022 - Sep 2022</p>
+                    <p>AICTE & Ministry of Housing and Urban Affairs virtual internship program on cloud technology, supported by Amazon Web Services (AWS). Focused on creating industry-ready workforce in emerging technologies.</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title-4d" style="margin-top: 6rem;">Quantum Achievements</h2>
+        <div class="grid-4d">
+            <div class="card-4d">
+                <h3 class="card-title-4d"><i class="fas fa-graduation-cap"></i> GATE 2025 Qualified</h3>
+                <p>Graduate Aptitude Test in Engineering (GATE) in Computer Science & Engineering</p>
+            </div>
+            <div class="card-4d">
+                <h3 class="card-title-4d"><i class="fas fa-chalkboard-teacher"></i> Bihar STET 2025</h3>
+                <p>Secondary Teacher Eligibility Test (STET) qualified</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section class="section-4d" id="education">
+        <h2 class="section-title-4d">Quantum Education</h2>
+        <div class="grid-4d">
+            <div class="card-4d">
+                <h3 class="card-title-4d"><i class="fas fa-university"></i> B.Tech CSE</h3>
+                <p><strong>Institute:</strong> Galgotias University</p>
+                <p><strong>Score:</strong> 71.6%</p>
+                <p><strong>Year:</strong> 2024</p>
+                <p><strong>Specialization:</strong> Computer Science & Engineering</p>
+            </div>
+            <div class="card-4d">
+                <h3 class="card-title-4d"><i class="fas fa-school"></i> Class XII (Science)</h3>
+                <p><strong>School:</strong> K J +2 High School Amba Kala</p>
+                <p><strong>Board:</strong> Bihar School Examination Board (BSEB)</p>
+                <p><strong>Score:</strong> 78.2%</p>
+                <p><strong>Year:</strong> 2019</p>
+            </div>
+            <div class="card-4d">
+                <h3 class="card-title-4d"><i class="fas fa-graduation-cap"></i> Class X</h3>
+                <p><strong>School:</strong> K J +2 High School Amba Kala</p>
+                <p><strong>Board:</strong> Bihar School Examination Board (BSEB)</p>
+                <p><strong>Score:</strong> 70%</p>
+                <p><strong>Year:</strong> 2017</p>
+            </div>
+        </div>
+        
+        <h2 class="section-title-4d" style="margin-top: 6rem;">Subjects & Languages</h2>
+        <div class="skills-orb-container">
+            <div class="skill-orb">Software Engineering</div>
+            <div class="skill-orb">Machine Learning</div>
+            <div class="skill-orb">Artificial Intelligence</div>
+            <div class="skill-orb">English</div>
+            <div class="skill-orb">Hindi</div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="section-4d" id="contact">
+        <h2 class="section-title-4d">Quantum Contact</h2>
+        <div class="contact-matrix">
+            <div class="matrix-cell">
+                <i class="fas fa-envelope fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Email</h3>
+                <p>bittuk292021@gmail.com</p>
+            </div>
+            <div class="matrix-cell">
+                <i class="fas fa-phone fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Phone</h3>
+                <p>+91 9608520740</p>
+            </div>
+            <div class="matrix-cell">
+                <i class="fas fa-map-marker-alt fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Location</h3>
+                <p>New Delhi, India</p>
+            </div>
+            <div class="matrix-cell">
+                <i class="fab fa-linkedin fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>LinkedIn</h3>
+                <p>linkedin.com/in/rq-64757121a</p>
+            </div>
+        </div>
+        
+        <h2 class="section-title-4d" style="margin-top: 6rem;">Hobbies & Interests</h2>
+        <div class="skills-orb-container">
+            <div class="skill-orb">
+                <i class="fas fa-chess"></i>
+                <span>Chess</span>
+            </div>
+            <div class="skill-orb">
+                <i class="fas fa-baseball-ball"></i>
+                <span>Cricket</span>
+            </div>
+            <div class="skill-orb">
+                <i class="fas fa-table-tennis"></i>
+                <span>Badminton</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer-4d">
+        <div class="logo-quantum" style="font-size: 1.5rem; margin-bottom: 1rem;">Bittu Kumar</div>
+        <p>Quantum Developer | Computer Science Engineer | AI Enthusiast</p>
+        <p style="margin-top: 1rem; color: rgba(255, 255, 255, 0.6); font-size: 0.9rem;">
+            &copy; 2024 Quantum Portfolio. All dimensions reserved.
+        </p>
+    </footer>
+
+    <!-- Quantum Scripts -->
+    <script>
+        // Mobile Navigation
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu on link click
+        document.querySelectorAll('.nav-link-4d').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Auto-load photo with multiple file name attempts
+        function loadQuantumPhoto() {
+            const hologramContainer = document.getElementById('hologramContainer');
+            
+            // Try multiple possible photo names
+            const photoAttempts = [
+                'raj-photo.jpg',
+                'raj-photo.jpeg',
+                'raj-photo.png',
+                'raj.jpg',
+                'raj.jpeg',
+                'raj.png',
+                'profile.jpg',
+                'profile.jpeg',
+                'profile.png',
+                'photo.jpg',
+                'photo.jpeg',
+                'photo.png',
+                'bittu.jpg',
+                'bittu.jpeg',
+                'bittu.png',
+                'BITTU.jpg',
+                'BITTU.jpeg',
+                'BITTU.png',
+                'your-photo.jpg',
+                'your-photo.jpeg',
+                'your-photo.png'
+            ];
+            
+            let photoLoaded = false;
+            
+            // Function to test if image exists
+            function testImage(url, callback) {
+                const img = new Image();
+                img.onload = function() {
+                    callback(true, url);
+                };
+                img.onerror = function() {
+                    callback(false, url);
+                };
+                img.src = url;
+            }
+            
+            // Try each photo name
+            photoAttempts.forEach(photoName => {
+                if (!photoLoaded) {
+                    testImage(photoName, (exists, url) => {
+                        if (exists && !photoLoaded) {
+                            photoLoaded = true;
+                            const img = document.createElement('img');
+                            img.src = url;
+                            img.alt = 'Bittu Kumar';
+                            img.className = 'my-hologram-photo';
+                            hologramContainer.appendChild(img);
+                            console.log(`Quantum photo loaded: ${url}`);
+                            
+                            // Add hologram effect after photo loads
+                            img.onload = function() {
+                                hologramContainer.style.background = 'rgba(0, 0, 0, 0.1)';
+                            };
+                        }
+                    });
+                }
+            });
+            
+            // If no photo found after 1.5 seconds, show placeholder
+            setTimeout(() => {
+                if (!photoLoaded) {
+                    hologramContainer.innerHTML = `
+                        <div style="color: var(--primary); text-align: center; padding: 2rem;">
+                            <i class="fas fa-user-astronaut" style="font-size: 5rem; margin-bottom: 1rem;"></i>
+                            <h3>Bittu Kumar</h3>
+                            <p>Quantum Developer</p>
+                        </div>
+                    `;
+                    console.log('No photo found, showing quantum avatar');
+                }
+            }, 1500);
+        }
+        
+        // Load photo when page loads
+        window.addEventListener('load', loadQuantumPhoto);
+        
+        // Quantum Canvas Animation
+        const canvas = document.getElementById('quantum-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        
+        // Quantum particles
+        const particles = [];
+        const particleCount = 150;
+        
+        class QuantumParticle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+                this.color = Math.random() > 0.5 ? '#00f3ff' : '#9d00ff';
+                this.opacity = Math.random() * 0.5 + 0.1;
+                this.pulseSpeed = Math.random() * 0.02 + 0.005;
+                this.pulseOffset = Math.random() * Math.PI * 2;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                // Bounce off walls
+                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+                
+                // Pulsing effect
+                this.size = Math.sin(Date.now() * this.pulseSpeed + this.pulseOffset) * 1.5 + 2;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.opacity;
+                ctx.fill();
+                
+                // Glow effect
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = this.color;
+            }
+        }
+        
+        // Create particles
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new QuantumParticle());
+        }
+        
+        // Connect particles with lines
+        function connectParticles() {
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    const dx = particles[a].x - particles[b].x;
+                    const dy = particles[a].y - particles[b].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = 'rgba(0, 243, 255, 0.1)';
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        // Animation loop
+        function animateQuantum() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            connectParticles();
+            
+            requestAnimationFrame(animateQuantum);
+        }
+        
+        animateQuantum();
+        
+        // Timeline scroll animation
+        const timelineItems = document.querySelectorAll('.timeline-item-4d');
+        
+        function checkTimelineVisibility() {
+            timelineItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.8) {
+                    item.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkTimelineVisibility);
+        checkTimelineVisibility(); // Check on load
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Interactive hologram effect
+        const hologram = document.querySelector('.photo-hologram');
+        if (hologram) {
+            document.addEventListener('mousemove', (e) => {
+                const x = (window.innerWidth - e.clientX * 2) / 100;
+                const y = (window.innerHeight - e.clientY * 2) / 100;
+                
+                hologram.style.transform = `translate(-50%, -50%) rotateX(${y}deg) rotateY(${x}deg)`;
+            });
+        }
+        
+        // Quantum typing effect
+        const typewriterText = document.querySelector('.typewriter');
+        if (typewriterText) {
+            const originalText = typewriterText.textContent;
+            typewriterText.textContent = '';
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < originalText.length) {
+                    typewriterText.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                } else {
+                    // Keep blinking cursor
+                    typewriterText.style.animation = 'blink-caret 0.75s step-end infinite';
+                }
+            }
+            
+            setTimeout(typeWriter, 1000);
+        }
+    </script>
+</body>
+</html>
