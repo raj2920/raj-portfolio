@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BITTU KUMAR(RAJ) | 4D Quantum Portfolio</title>
+    <title>BITTU KUMAR | Quantum Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,29 +14,36 @@
         }
 
         :root {
-            --primary: #ff0080;
-            --secondary: #00ffaa;
-            --accent: #8000ff;
-            --dark: #0a0a1a;
-            --darker: #050510;
-            --light: #ffffff;
-            --neon-glow: 0 0 25px var(--primary), 0 0 50px var(--secondary);
-            --grid-color: rgba(255, 0, 128, 0.15);
+            --primary: #00d4ff;
+            --secondary: #6c63ff;
+            --accent: #ff6b8b;
+            --dark: #0f172a;
+            --darker: #0a0f1f;
+            --light: #f8fafc;
+            --neon-glow: 0 0 20px rgba(0, 212, 255, 0.3);
+            --grid-color: rgba(108, 99, 255, 0.05);
         }
 
         body {
-            background: linear-gradient(135deg, #050510 0%, #0a0a1a 50%, #150530 100%);
+            background: linear-gradient(135deg, #0a0f1f 0%, #0f172a 50%, #1e293b 100%);
             color: var(--light);
             min-height: 100vh;
             overflow-x: hidden;
             background-image: 
                 linear-gradient(45deg, var(--grid-color) 1px, transparent 1px),
                 linear-gradient(-45deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 60px 60px;
+            background-size: 40px 40px;
             background-attachment: fixed;
         }
 
-        /* Quantum Particles Canvas */
+        /* Performance Optimizations */
+        .performance-optimized {
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        /* Quantum Canvas - Performance Optimized */
         #quantum-canvas {
             position: fixed;
             top: 0;
@@ -44,78 +51,47 @@
             width: 100%;
             height: 100%;
             z-index: -2;
+            pointer-events: none;
         }
 
-        /* 4D Hypercube Container */
-        .hypercube-container {
-            position: fixed;
-            top: 50%;
-            right: 5%;
-            transform: translateY(-50%);
-            width: 300px;
-            height: 300px;
-            z-index: -1;
-            opacity: 0.4;
-        }
-
-        /* Navigation - 4D Style */
+        /* 4D Navigation */
         .nav-4d {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 5%;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(10, 5, 20, 0.95);
-            backdrop-filter: blur(25px);
-            border-bottom: 2px solid rgba(255, 0, 128, 0.3);
-            box-shadow: var(--neon-glow);
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
         .logo-quantum {
-            font-size: 2.2rem;
-            font-weight: 900;
+            font-size: 1.8rem;
+            font-weight: 800;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            animation: glitch 3s infinite;
-            text-shadow: 0 0 15px rgba(255, 0, 128, 0.5);
-        }
-
-        @keyframes glitch {
-            0%, 100% { transform: translate(0); }
-            1% { transform: translate(-2px, 2px); }
-            2% { transform: translate(-1px, -1px); }
-            3% { transform: translate(2px, 1px); }
-            4% { transform: translate(1px, -2px); }
-            5% { transform: translate(-1px, 2px); }
-            6% { transform: translate(2px, -1px); }
-            7% { transform: translate(-2px, 1px); }
-            8% { transform: translate(1px, 1px); }
-            9% { transform: translate(-1px, -1px); }
-            10% { transform: translate(0); }
+            letter-spacing: 2px;
         }
 
         .nav-links-4d {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         .nav-link-4d {
             color: var(--light);
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 1rem;
             position: relative;
             padding: 0.5rem 0;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
         }
 
         .nav-link-4d::before {
@@ -124,15 +100,13 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 3px;
+            height: 2px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 0 10px var(--primary);
+            transition: width 0.3s ease;
         }
 
         .nav-link-4d:hover {
-            color: var(--secondary);
-            text-shadow: 0 0 15px var(--secondary);
+            color: var(--primary);
         }
 
         .nav-link-4d:hover::before {
@@ -141,20 +115,19 @@
 
         .hamburger-4d {
             display: none;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             cursor: pointer;
             color: var(--primary);
         }
 
-        /* 4D Hero Section */
+        /* Hero Section */
         .hero-4d {
             min-height: 100vh;
             display: flex;
             align-items: center;
             padding: 0 10%;
-            padding-top: 100px;
+            padding-top: 80px;
             position: relative;
-            overflow: hidden;
         }
 
         .hero-content-4d {
@@ -164,513 +137,227 @@
         }
 
         .hero-title-4d {
-            font-size: 4.8rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 40px rgba(255, 0, 128, 0.7);
-            animation: titleGlow 4s infinite alternate;
-            letter-spacing: 2px;
-        }
-
-        @keyframes titleGlow {
-            0% { text-shadow: 0 0 30px rgba(255, 0, 128, 0.7); }
-            100% { text-shadow: 0 0 60px rgba(0, 255, 170, 0.9); }
         }
 
         .hero-subtitle-4d {
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.95);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .typewriter {
-            border-right: 4px solid var(--secondary);
-            white-space: nowrap;
-            overflow: hidden;
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-            font-weight: 700;
-        }
-
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--secondary) }
+            color: var(--light);
+            font-weight: 600;
+            opacity: 0.9;
         }
 
         .hero-description-4d {
-            font-size: 1.4rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 3rem;
-            position: relative;
-            padding-left: 2.5rem;
-            border-left: 4px solid var(--primary);
-            font-weight: 600;
         }
 
         .cta-buttons-4d {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 3rem;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
         .btn-4d {
-            padding: 1.3rem 2.8rem;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
             border: none;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 1rem;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-4d::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s;
-            z-index: -1;
-        }
-
-        .btn-4d:hover::before {
-            left: 100%;
+            gap: 0.5rem;
         }
 
         .btn-primary-4d {
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            color: var(--light);
-            box-shadow: 0 0 40px rgba(255, 0, 128, 0.6);
-            font-weight: 800;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
         }
 
         .btn-secondary-4d {
             background: transparent;
-            color: var(--secondary);
-            border: 3px solid var(--secondary);
-            box-shadow: 0 0 30px rgba(0, 255, 170, 0.5);
-            font-weight: 800;
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
 
         .btn-4d:hover {
-            transform: translateY(-10px) scale(1.08);
-            box-shadow: 0 20px 50px rgba(255, 0, 128, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* 4D Photo Portal */
-        .photo-portal-container {
+        /* Photo Section */
+        .photo-container {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-            perspective: 1000px;
         }
 
-        .photo-portal {
-            width: 420px;
-            height: 520px;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: portalSpin 25s linear infinite;
-        }
-
-        @keyframes portalSpin {
-            0% { transform: rotateY(0deg) rotateX(5deg); }
-            100% { transform: rotateY(360deg) rotateX(5deg); }
-        }
-
-        .portal-ring {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 4px solid;
-            border-radius: 50%;
-            animation: ringPulse 4s ease-in-out infinite;
-        }
-
-        .ring-1 { border-color: var(--primary); top: 0; left: 0; animation-delay: 0s; }
-        .ring-2 { border-color: var(--secondary); top: 15px; left: 15px; animation-delay: 0.5s; }
-        .ring-3 { border-color: var(--accent); top: 30px; left: 30px; animation-delay: 1s; }
-
-        @keyframes ringPulse {
-            0%, 100% { transform: scale(1); opacity: 0.6; }
-            50% { transform: scale(1.15); opacity: 1; }
-        }
-
-        .photo-hologram {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .photo-frame {
             width: 300px;
             height: 380px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 25px;
+            position: relative;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 
-                inset 0 0 60px rgba(255, 0, 128, 0.4),
-                0 0 80px rgba(0, 255, 170, 0.6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(0, 212, 255, 0.3);
         }
 
-        .my-hologram-photo {
+        .profile-photo {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 20px;
-            filter: hue-rotate(0deg) contrast(1.2) brightness(1.2);
-            animation: hueRotate 12s infinite linear;
-            transition: all 0.5s ease;
+            transition: transform 0.3s ease;
         }
 
-        @keyframes hueRotate {
-            0% { filter: hue-rotate(0deg) contrast(1.2) brightness(1.2); }
-            100% { filter: hue-rotate(360deg) contrast(1.2) brightness(1.2); }
+        .photo-frame:hover .profile-photo {
+            transform: scale(1.05);
         }
 
-        .photo-hologram::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent 30%,
-                rgba(255, 0, 128, 0.2) 50%,
-                transparent 70%
-            );
-            animation: hologramScan 3.5s linear infinite;
-            z-index: 1;
-        }
-
-        @keyframes hologramScan {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* 4D Sections */
+        /* Sections */
         .section-4d {
-            padding: 9rem 10%;
+            padding: 6rem 10%;
             position: relative;
-            border-bottom: 2px solid rgba(255, 0, 128, 0.15);
         }
 
         .section-title-4d {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 5rem;
-            text-align: center;
-            position: relative;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
-        }
-
-        .section-title-4d::before,
-        .section-title-4d::after {
-            content: '✦';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--secondary);
             font-size: 2.5rem;
-            animation: starPulse 2s infinite;
-            text-shadow: 0 0 20px var(--secondary);
+            font-weight: 800;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--light);
         }
 
-        .section-title-4d::before {
-            left: -70px;
-        }
-
-        .section-title-4d::after {
-            right: -70px;
-        }
-
-        @keyframes starPulse {
-            0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); }
-            50% { opacity: 1; transform: translateY(-50%) scale(1.5); }
-        }
-
-        /* 4D Grid Layout */
+        /* Grid Layout */
         .grid-4d {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 3.5rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .card-4d {
-            background: rgba(15, 10, 25, 0.8);
-            border-radius: 30px;
-            padding: 3rem;
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid rgba(255, 0, 128, 0.3);
-            backdrop-filter: blur(25px);
-            position: relative;
-            overflow: hidden;
-            transform-style: preserve-3d;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .card-4d::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            box-shadow: 0 0 15px var(--primary);
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .card-4d:hover {
-            transform: translateY(-25px) rotateX(8deg);
-            box-shadow: 
-                0 30px 70px rgba(255, 0, 128, 0.5),
-                inset 0 0 40px rgba(0, 255, 170, 0.3);
-            border-color: var(--secondary);
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
         }
 
         .card-title-4d {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 1.8rem;
-            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            gap: 0.5rem;
         }
 
-        .card-title-4d i {
-            font-size: 2.5rem;
-        }
-
-        .card-4d p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .card-4d strong {
-            color: var(--primary);
-            font-weight: 800;
-        }
-
-        /* 4D Timeline */
-        .timeline-4d {
-            position: relative;
-            max-width: 1100px;
-            margin: 5rem auto;
-        }
-
-        .timeline-4d::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 6px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
-            box-shadow: 0 0 30px var(--primary);
-        }
-
-        .timeline-item-4d {
-            margin-bottom: 5rem;
-            position: relative;
-            width: 45%;
-            opacity: 0;
-            transform: translateY(60px);
-            transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .timeline-item-4d.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-item-4d:nth-child(odd) {
-            margin-left: 0;
-            margin-right: auto;
-            padding-right: 5rem;
-            text-align: right;
-        }
-
-        .timeline-item-4d:nth-child(even) {
-            margin-left: auto;
-            margin-right: 0;
-            padding-left: 5rem;
-            text-align: left;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            top: 20px;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: var(--secondary);
-            box-shadow: 0 0 25px var(--secondary);
-            animation: dotPulse 2s infinite;
-        }
-
-        @keyframes dotPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-        }
-
-        .timeline-item-4d:nth-child(odd) .timeline-dot {
-            right: -15px;
-        }
-
-        .timeline-item-4d:nth-child(even) .timeline-dot {
-            left: -15px;
-        }
-
-        /* 4D Skill Orbs */
-        .skills-orb-container {
+        /* Skills */
+        .skills-container {
             display: flex;
             flex-wrap: wrap;
+            gap: 1rem;
             justify-content: center;
-            gap: 3rem;
-            margin-top: 4rem;
+            margin-top: 2rem;
         }
 
-        .skill-orb {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            background: rgba(15, 10, 25, 0.9);
-            border: 3px solid var(--secondary);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 40px rgba(0, 255, 170, 0.3);
-            font-weight: 700;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .skill-orb:hover {
-            transform: scale(1.3) rotateY(180deg);
-            box-shadow: 0 0 70px var(--secondary);
-            border-color: var(--primary);
-        }
-
-        .skill-orb i {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 0.8rem;
-            transition: all 0.6s;
-        }
-
-        .skill-orb:hover i {
-            color: var(--primary);
-            transform: scale(1.2);
-        }
-
-        /* 4D Contact Matrix */
-        .contact-matrix {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .matrix-cell {
-            background: rgba(15, 10, 25, 0.8);
-            padding: 2.5rem;
-            border-radius: 25px;
-            border: 2px solid rgba(0, 255, 170, 0.4);
-            transition: all 0.5s ease;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .matrix-cell:hover {
-            transform: translateY(-15px);
-            border-color: var(--primary);
-            box-shadow: 0 25px 50px rgba(255, 0, 128, 0.4);
-        }
-
-        .matrix-cell h3 {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin: 1rem 0;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .matrix-cell p {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
+        .skill-item {
+            background: rgba(108, 99, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(108, 99, 255, 0.3);
             font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        /* 4D Footer */
-        .footer-4d {
-            text-align: center;
-            padding: 4rem;
-            background: rgba(10, 5, 20, 0.95);
-            border-top: 2px solid rgba(255, 0, 128, 0.3);
+        .skill-item:hover {
+            background: rgba(108, 99, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Timeline */
+        .timeline {
             position: relative;
-            overflow: hidden;
+            max-width: 800px;
+            margin: 3rem auto;
         }
 
-        .footer-4d::before {
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
             content: '';
             position: absolute;
+            left: 0;
             top: 0;
-            left: -100%;
-            width: 100%;
+            width: 2px;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 0, 128, 0.1), transparent);
-            animation: footerScan 8s linear infinite;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
         }
 
-        @keyframes footerScan {
-            0% { left: -100%; }
-            100% { left: 100%; }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer-4d {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(15, 23, 42, 0.9);
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
         }
 
         /* Responsive */
@@ -678,46 +365,32 @@
             .hero-4d {
                 flex-direction: column;
                 text-align: center;
-                padding-top: 150px;
+                padding-top: 100px;
             }
             
             .hero-content-4d {
-                margin-bottom: 5rem;
+                margin-bottom: 4rem;
             }
             
-            .photo-portal {
-                width: 380px;
-                height: 480px;
-            }
-            
-            .photo-hologram {
+            .photo-frame {
                 width: 280px;
                 height: 350px;
-            }
-            
-            .hero-title-4d {
-                font-size: 4rem;
-            }
-            
-            .section-title-4d {
-                font-size: 3.5rem;
             }
         }
 
         @media (max-width: 768px) {
             .nav-links-4d {
                 position: fixed;
-                top: 80px;
+                top: 70px;
                 right: -100%;
                 flex-direction: column;
-                background: rgba(10, 5, 20, 0.98);
+                background: rgba(15, 23, 42, 0.98);
                 width: 100%;
                 text-align: center;
-                padding: 2.5rem 0;
-                transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                backdrop-filter: blur(25px);
-                border-top: 2px solid rgba(255, 0, 128, 0.3);
-                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+                padding: 2rem 0;
+                transition: right 0.3s ease;
+                backdrop-filter: blur(10px);
+                border-top: 1px solid rgba(0, 212, 255, 0.2);
             }
             
             .nav-links-4d.active {
@@ -729,77 +402,28 @@
             }
             
             .hero-title-4d {
-                font-size: 3.2rem;
+                font-size: 2.5rem;
             }
             
             .hero-subtitle-4d {
-                font-size: 1.8rem;
+                font-size: 1.2rem;
             }
             
-            .section-title-4d {
-                font-size: 2.8rem;
-            }
-            
-            .section-title-4d::before,
-            .section-title-4d::after {
-                display: none;
-            }
-            
-            .timeline-4d::before {
-                left: 30px;
-            }
-            
-            .timeline-item-4d {
-                width: 100%;
-                padding-left: 70px !important;
-                padding-right: 0 !important;
-                text-align: left !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-            }
-            
-            .timeline-item-4d:nth-child(odd) .timeline-dot,
-            .timeline-item-4d:nth-child(even) .timeline-dot {
-                left: 20px;
-                right: auto;
-            }
-            
-            .grid-4d {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-            
-            .btn-4d {
-                padding: 1.1rem 2rem;
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title-4d {
-                font-size: 2.8rem;
-            }
-            
-            .hero-subtitle-4d {
-                font-size: 1.5rem;
-            }
-            
-            .section-title-4d {
-                font-size: 2.3rem;
-            }
-            
-            .photo-portal {
-                width: 320px;
-                height: 400px;
-            }
-            
-            .photo-hologram {
-                width: 240px;
-                height: 300px;
+            .section-4d {
+                padding: 4rem 5%;
             }
             
             .cta-buttons-4d {
                 flex-direction: column;
+            }
+        }
+
+        /* Performance Optimizations */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -808,9 +432,9 @@
     <!-- Quantum Canvas -->
     <canvas id="quantum-canvas"></canvas>
     
-    <!-- 4D Navigation -->
+    <!-- Navigation -->
     <nav class="nav-4d">
-        <div class="logo-quantum">RAJ<span style="color: var(--accent);">::</span>QUANTUM</div>
+        <div class="logo-quantum">BITTU KUMAR</div>
         <div class="hamburger-4d" id="hamburger">
             <i class="fas fa-bars"></i>
         </div>
@@ -824,233 +448,182 @@
         </div>
     </nav>
     
-    <!-- 4D Hero Section -->
+    <!-- Hero Section -->
     <section class="hero-4d" id="home">
         <div class="hero-content-4d">
-            <h1 class="hero-title-4d">RAJ BITTU</h1>
-            <h2 class="hero-subtitle-4d typewriter">BITTU KUMAR</h2>
+            <h1 class="hero-title-4d">BITTU KUMAR</h1>
+            <h2 class="hero-subtitle-4d">Computer Science Engineer</h2>
             <p class="hero-description-4d">
-                <strong>Visionary Computer Science Engineer</strong> specializing in quantum-inspired development, 
-                AI integration, and cloud-native solutions. Transforming complex problems into 
+                Passionate Computer Science Engineer specializing in software development, 
+                AI integration, and cloud solutions. Transforming complex problems into 
                 elegant digital experiences through cutting-edge technology.
             </p>
             <div class="cta-buttons-4d">
                 <a href="#contact" class="btn-4d btn-primary-4d">
-                    <i class="fas fa-rocket"></i>Launch Connection
+                    <i class="fas fa-envelope"></i> Contact Me
                 </a>
                 <a href="#projects" class="btn-4d btn-secondary-4d">
-                    <i class="fas fa-eye"></i>View Projects
+                    <i class="fas fa-code"></i> View Projects
                 </a>
             </div>
         </div>
-        <div class="photo-portal-container">
-            <div class="photo-portal">
-                <div class="portal-ring ring-1"></div>
-                <div class="portal-ring ring-2"></div>
-                <div class="portal-ring ring-3"></div>
-                <div class="photo-hologram" id="hologramContainer">
-                    <!-- Photo will be loaded here -->
-                </div>
+        <div class="photo-container">
+            <div class="photo-frame">
+                <!-- Photo will be loaded automatically -->
             </div>
         </div>
     </section>
     
     <!-- About Section -->
     <section class="section-4d" id="about">
-        <h2 class="section-title-4d">Quantum Profile</h2>
+        <h2 class="section-title-4d">About Me</h2>
         <div class="grid-4d">
             <div class="card-4d">
-                <h3 class="card-title-4d"><i class="fas fa-bullseye"></i> Mission Objective</h3>
-                <p><strong>To obtain a challenging software development position</strong> that utilizes my programming skills and knowledge to design, develop, and implement innovative software solutions.</p>
-                <p><strong>Seeking a software engineer role</strong> in a reputable organization where I can apply my technical skills to contribute to the development of cutting-edge software products.</p>
-            </div>
-            <div class="card-4d">
-                <h3 class="card-title-4d"><i class="fas fa-id-badge"></i> Digital Identity</h3>
+                <h3 class="card-title-4d"><i class="fas fa-user"></i> Profile</h3>
                 <p><strong>Location:</strong> New Delhi, India</p>
                 <p><strong>Email:</strong> bittuk292021@gmail.com</p>
-                <p><strong>Quantum Link:</strong> +91 9608520740</p>
-                <p><strong>Network Node:</strong> linkedin.com/in/rq-64757121a</p>
-                <p><strong>Academic Status:</strong> B.Tech CSE Graduate (2024)</p>
+                <p><strong>Phone:</strong> +91 9608520740</p>
+                <p><strong>LinkedIn:</strong> linkedin.com/in/rq-64757121a</p>
+                <p><strong>Status:</strong> B.Tech CSE Graduate (2024)</p>
+            </div>
+            <div class="card-4d">
+                <h3 class="card-title-4d"><i class="fas fa-bullseye"></i> Objective</h3>
+                <p>To obtain a challenging software development position that utilizes my programming skills to design, develop, and implement innovative software solutions.</p>
+                <p>Seeking a software engineer role where I can apply my technical skills to contribute to cutting-edge software products.</p>
             </div>
         </div>
     </section>
     
     <!-- Skills Section -->
     <section class="section-4d" id="skills">
-        <h2 class="section-title-4d">Quantum Skills</h2>
-        <div class="skills-orb-container">
-            <div class="skill-orb">
-                <i class="fab fa-python"></i>
-                <span>Python AI</span>
-            </div>
-            <div class="skill-orb">
-                <i class="fas fa-cloud"></i>
-                <span>AWS Cloud</span>
-            </div>
-            <div class="skill-orb">
-                <i class="fas fa-brain"></i>
-                <span>Machine Learning</span>
-            </div>
-            <div class="skill-orb">
-                <i class="fas fa-database"></i>
-                <span>DBMS</span>
-            </div>
-            <div class="skill-orb">
-                <i class="fas fa-network-wired"></i>
-                <span>Networking</span>
-            </div>
-            <div class="skill-orb">
-                <i class="fas fa-mobile-alt"></i>
-                <span>Flutter</span>
-            </div>
+        <h2 class="section-title-4d">Skills & Technologies</h2>
+        <div class="skills-container">
+            <div class="skill-item">Python</div>
+            <div class="skill-item">AWS Cloud</div>
+            <div class="skill-item">Machine Learning</div>
+            <div class="skill-item">DBMS</div>
+            <div class="skill-item">Networking</div>
+            <div class="skill-item">Flutter</div>
+            <div class="skill-item">AI Integration</div>
+            <div class="skill-item">Web Development</div>
         </div>
         
-        <h2 class="section-title-4d" style="margin-top: 8rem;">Certifications</h2>
+        <h2 class="section-title-4d" style="margin-top: 4rem;">Certifications</h2>
         <div class="grid-4d">
             <div class="card-4d">
                 <h3 class="card-title-4d"><i class="fab fa-aws"></i> AWS Cloud</h3>
                 <p><strong>Authority:</strong> AICTE</p>
-                <p><strong>Virtual Internship program</strong> on cloud Technology supported by Amazon Web Services (AWS)</p>
+                <p>Virtual Internship program on cloud Technology supported by Amazon Web Services</p>
             </div>
             <div class="card-4d">
                 <h3 class="card-title-4d"><i class="fas fa-network-wired"></i> CCNAv7</h3>
                 <p><strong>Authority:</strong> Cisco</p>
-                <p><strong>Introduction to Networks</strong> course completion with student level credential</p>
+                <p>Introduction to Networks course completion</p>
             </div>
             <div class="card-4d">
                 <h3 class="card-title-4d"><i class="fas fa-server"></i> Juniper Networks</h3>
                 <p><strong>Authority:</strong> AICTE (Eduskills)</p>
-                <p><strong>Networking certification</strong> through AICTE's Eduskills program</p>
+                <p>Networking certification through AICTE's Eduskills program</p>
             </div>
         </div>
     </section>
     
     <!-- Projects Section -->
     <section class="section-4d" id="projects">
-        <h2 class="section-title-4d">Quantum Projects</h2>
-        <div class="timeline-4d">
-            <div class="timeline-item-4d">
-                <div class="timeline-dot"></div>
+        <h2 class="section-title-4d">Projects</h2>
+        <div class="timeline">
+            <div class="timeline-item">
                 <div class="card-4d">
                     <h3 class="card-title-4d"><i class="fab fa-whatsapp"></i> WhatsApp Chat Analysis</h3>
-                    <p class="date"><strong>Dec 2022 - Jun 2024</strong></p>
-                    <p><strong>A quantum analysis tool</strong> for WhatsApp chat data using Python modules (pandas, matplotlib, seaborn) with sentiment analysis. Features include data visualization and Flutter application integration.</p>
-                    <p><strong>Tech Stack:</strong> Python, Pandas, Matplotlib, Seaborn, Flutter, Sentiment Analysis</p>
+                    <p><strong>Duration:</strong> Dec 2022 - Jun 2024</p>
+                    <p>Analysis tool for WhatsApp chat data using Python modules with sentiment analysis, data visualization and Flutter application integration.</p>
+                    <p><strong>Tech Stack:</strong> Python, Pandas, Matplotlib, Flutter</p>
                 </div>
             </div>
-            <div class="timeline-item-4d">
-                <div class="timeline-dot"></div>
+            <div class="timeline-item">
                 <div class="card-4d">
                     <h3 class="card-title-4d"><i class="fas fa-cloud"></i> AWS Cloud Virtual Internship</h3>
-                    <p class="date"><strong>Jul 2022 - Sep 2022</strong></p>
-                    <p><strong>AICTE & Ministry of Housing and Urban Affairs</strong> virtual internship program on cloud technology, supported by Amazon Web Services (AWS). Focused on creating industry-ready workforce in emerging technologies.</p>
+                    <p><strong>Duration:</strong> Jul 2022 - Sep 2022</p>
+                    <p>AICTE & Ministry of Housing and Urban Affairs virtual internship program on cloud technology, supported by Amazon Web Services.</p>
                 </div>
             </div>
         </div>
         
-        <h2 class="section-title-4d" style="margin-top: 8rem;">Quantum Achievements</h2>
+        <h2 class="section-title-4d" style="margin-top: 4rem;">Achievements</h2>
         <div class="grid-4d">
             <div class="card-4d">
                 <h3 class="card-title-4d"><i class="fas fa-graduation-cap"></i> GATE 2025 Qualified</h3>
-                <p><strong>Graduate Aptitude Test in Engineering</strong> (GATE) in Computer Science & Engineering</p>
+                <p>Graduate Aptitude Test in Engineering (GATE) in Computer Science & Engineering</p>
             </div>
             <div class="card-4d">
                 <h3 class="card-title-4d"><i class="fas fa-chalkboard-teacher"></i> Bihar STET 2025</h3>
-                <p><strong>Secondary Teacher Eligibility Test</strong> (STET) qualified</p>
+                <p>Secondary Teacher Eligibility Test (STET) qualified</p>
             </div>
         </div>
     </section>
     
     <!-- Education Section -->
     <section class="section-4d" id="education">
-        <h2 class="section-title-4d">Quantum Education</h2>
+        <h2 class="section-title-4d">Education</h2>
         <div class="grid-4d">
             <div class="card-4d">
                 <h3 class="card-title-4d"><i class="fas fa-university"></i> B.Tech CSE</h3>
                 <p><strong>Institute:</strong> Galgotias University</p>
                 <p><strong>Score:</strong> 71.6%</p>
                 <p><strong>Year:</strong> 2024</p>
-                <p><strong>Specialization:</strong> Computer Science & Engineering</p>
             </div>
             <div class="card-4d">
                 <h3 class="card-title-4d"><i class="fas fa-school"></i> Class XII (Science)</h3>
                 <p><strong>School:</strong> K J +2 High School Amba Kala</p>
-                <p><strong>Board:</strong> Bihar School Examination Board (BSEB)</p>
                 <p><strong>Score:</strong> 78.2%</p>
                 <p><strong>Year:</strong> 2019</p>
             </div>
             <div class="card-4d">
                 <h3 class="card-title-4d"><i class="fas fa-graduation-cap"></i> Class X</h3>
                 <p><strong>School:</strong> K J +2 High School Amba Kala</p>
-                <p><strong>Board:</strong> Bihar School Examination Board (BSEB)</p>
                 <p><strong>Score:</strong> 70%</p>
                 <p><strong>Year:</strong> 2017</p>
             </div>
-        </div>
-        
-        <h2 class="section-title-4d" style="margin-top: 8rem;">Subjects & Languages</h2>
-        <div class="skills-orb-container">
-            <div class="skill-orb">Software Engineering</div>
-            <div class="skill-orb">Machine Learning</div>
-            <div class="skill-orb">Artificial Intelligence</div>
-            <div class="skill-orb">English</div>
-            <div class="skill-orb">Hindi</div>
         </div>
     </section>
     
     <!-- Contact Section -->
     <section class="section-4d" id="contact">
-        <h2 class="section-title-4d">Quantum Contact</h2>
-        <div class="contact-matrix">
-            <div class="matrix-cell">
-                <i class="fas fa-envelope fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+        <h2 class="section-title-4d">Contact Me</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <i class="fas fa-envelope fa-2x" style="color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>Email</h3>
                 <p>bittuk292021@gmail.com</p>
             </div>
-            <div class="matrix-cell">
-                <i class="fas fa-phone fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+            <div class="contact-item">
+                <i class="fas fa-phone fa-2x" style="color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>Phone</h3>
                 <p>+91 9608520740</p>
             </div>
-            <div class="matrix-cell">
-                <i class="fas fa-map-marker-alt fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt fa-2x" style="color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>Location</h3>
                 <p>New Delhi, India</p>
             </div>
-            <div class="matrix-cell">
-                <i class="fab fa-linkedin fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+            <div class="contact-item">
+                <i class="fab fa-linkedin fa-2x" style="color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>LinkedIn</h3>
                 <p>linkedin.com/in/rq-64757121a</p>
-            </div>
-        </div>
-        
-        <h2 class="section-title-4d" style="margin-top: 8rem;">Hobbies & Interests</h2>
-        <div class="skills-orb-container">
-            <div class="skill-orb">
-                <i class="fas fa-chess"></i>
-                <span>Chess</span>
-            </div>
-            <div class="skill-orb">
-                <i class="fas fa-baseball-ball"></i>
-                <span>Cricket</span>
-            </div>
-            <div class="skill-orb">
-                <i class="fas fa-table-tennis"></i>
-                <span>Badminton</span>
             </div>
         </div>
     </section>
     
     <!-- Footer -->
     <footer class="footer-4d">
-        <div class="logo-quantum" style="font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 800;">BITTU KUMAR</div>
-        <p style="font-weight: 700; font-size: 1.2rem;">Quantum Developer | Computer Science Engineer | AI Enthusiast</p>
-        <p style="margin-top: 1.5rem; color: rgba(255, 255, 255, 0.7); font-size: 1rem; font-weight: 600;">
-            &copy; 2024 Quantum Portfolio. All dimensions reserved.
+        <div class="logo-quantum" style="font-size: 1.5rem; margin-bottom: 1rem;">Bittu Kumar</div>
+        <p>Computer Science Engineer | Software Developer</p>
+        <p style="margin-top: 1rem; color: rgba(255, 255, 255, 0.6);">
+            &copy; 2024 Portfolio. All rights reserved.
         </p>
     </footer>
 
-    <!-- Quantum Scripts -->
+    <!-- Optimized JavaScript -->
     <script>
         // Mobile Navigation
         const hamburger = document.getElementById('hamburger');
@@ -1067,331 +640,177 @@
             });
         });
         
-        // Auto-load photo with multiple file name attempts
-        function loadQuantumPhoto() {
-            const hologramContainer = document.getElementById('hologramContainer');
+        // Auto-load profile photo with optimized performance
+        function loadProfilePhoto() {
+            const photoFrame = document.querySelector('.photo-frame');
             
-            // Try multiple possible photo names
-            const photoAttempts = [
-                'raj-photo.jpg',
-                'raj-photo.jpeg',
-                'raj-photo.png',
-                'raj.jpg',
-                'raj.jpeg',
-                'raj.png',
-                'profile.jpg',
-                'profile.jpeg',
-                'profile.png',
-                'photo.jpg',
-                'photo.jpeg',
-                'photo.png',
-                'bittu.jpg',
-                'bittu.jpeg',
-                'bittu.png',
-                'BITTU.jpg',
-                'BITTU.jpeg',
-                'BITTU.png',
-                'your-photo.jpg',
-                'your-photo.jpeg',
-                'your-photo.png'
+            // Common profile photo names to try
+            const photoNames = [
+                'profile.jpg', 'profile.jpeg', 'profile.png',
+                'photo.jpg', 'photo.jpeg', 'photo.png',
+                'bittu.jpg', 'bittu.jpeg', 'bittu.png',
+                'raj.jpg', 'raj.jpeg', 'raj.png',
+                'me.jpg', 'me.jpeg', 'me.png',
+                'avatar.jpg', 'avatar.jpeg', 'avatar.png'
             ];
             
-            let photoLoaded = false;
+            let photoFound = false;
             
-            // Function to test if image exists
-            function testImage(url, callback) {
-                const img = new Image();
-                img.onload = function() {
-                    callback(true, url);
-                };
-                img.onerror = function() {
-                    callback(false, url);
-                };
-                img.src = url;
+            // Function to check if image exists
+            function testImage(url) {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    img.onload = () => resolve(true);
+                    img.onerror = () => resolve(false);
+                    img.src = url;
+                });
             }
             
-            // Try each photo name
-            photoAttempts.forEach(photoName => {
-                if (!photoLoaded) {
-                    testImage(photoName, (exists, url) => {
-                        if (exists && !photoLoaded) {
-                            photoLoaded = true;
+            // Try to load profile photo
+            async function loadPhoto() {
+                for (const name of photoNames) {
+                    if (!photoFound) {
+                        const exists = await testImage(name);
+                        if (exists) {
+                            photoFound = true;
                             const img = document.createElement('img');
-                            img.src = url;
+                            img.src = name;
                             img.alt = 'Bittu Kumar';
-                            img.className = 'my-hologram-photo';
-                            hologramContainer.appendChild(img);
-                            console.log(`Quantum photo loaded: ${url}`);
-                            
-                            // Add hologram effect after photo loads
-                            img.onload = function() {
-                                hologramContainer.style.background = 'rgba(0, 0, 0, 0.2)';
-                            };
+                            img.className = 'profile-photo';
+                            img.loading = 'lazy'; // Lazy loading for performance
+                            photoFrame.appendChild(img);
+                            console.log(`Profile photo loaded: ${name}`);
+                            break;
                         }
-                    });
+                    }
                 }
-            });
+                
+                // If no photo found, show placeholder
+                if (!photoFound) {
+                    setTimeout(() => {
+                        if (!photoFound) {
+                            photoFrame.innerHTML = `
+                                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; font-size: 1.5rem; font-weight: bold;">
+                                    <div style="text-align: center; padding: 2rem;">
+                                        <i class="fas fa-user" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                                        <div>BITTU KUMAR</div>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    }, 1000);
+                }
+            }
             
-            // If no photo found after 1.5 seconds, show placeholder
-            setTimeout(() => {
-                if (!photoLoaded) {
-                    hologramContainer.innerHTML = `
-                        <div style="color: var(--secondary); text-align: center; padding: 2rem; font-weight: 700;">
-                            <i class="fas fa-user-astronaut" style="font-size: 5rem; margin-bottom: 1.5rem; color: var(--primary);"></i>
-                            <h3 style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--secondary);">BITTU KUMAR</h3>
-                            <p style="color: var(--primary); font-weight: 800;">QUANTUM DEVELOPER</p>
-                        </div>
-                    `;
-                    console.log('No photo found, showing quantum avatar');
-                }
-            }, 1500);
+            loadPhoto();
         }
         
-        // Load photo when page loads
-        window.addEventListener('load', loadQuantumPhoto);
+        // Optimized Quantum Canvas with Performance Improvements
+        let animationFrameId = null;
+        let lastTimestamp = 0;
+        const frameInterval = 1000 / 30; // Target 30 FPS for better performance
         
-        // Quantum Canvas Animation - Enhanced Particles
         const canvas = document.getElementById('quantum-canvas');
         const ctx = canvas.getContext('2d');
         
         function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            canvas.width = Math.min(window.innerWidth, 1920); // Limit for performance
+            canvas.height = Math.min(window.innerHeight, 1080);
         }
         
-        window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('resize', resizeCanvas, { passive: true });
         resizeCanvas();
         
-        // Enhanced quantum particles
+        // Optimized particles
         const particles = [];
-        const particleCount = 200;
-        const connections = [];
+        const particleCount = Math.min(50, Math.floor(window.innerWidth / 20)); // Responsive particle count
         
-        class QuantumParticle {
+        class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 4 + 1;
-                this.speedX = Math.random() * 3 - 1.5;
-                this.speedY = Math.random() * 3 - 1.5;
-                this.color = Math.random() > 0.5 ? '#ff0080' : '#00ffaa';
-                this.opacity = Math.random() * 0.6 + 0.2;
-                this.pulseSpeed = Math.random() * 0.03 + 0.01;
-                this.pulseOffset = Math.random() * Math.PI * 2;
-                this.waveAmplitude = Math.random() * 2;
-                this.waveFrequency = Math.random() * 0.02;
-                this.trail = [];
-                this.maxTrailLength = 10;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.color = Math.random() > 0.5 ? 'rgba(0, 212, 255, 0.5)' : 'rgba(108, 99, 255, 0.5)';
             }
             
             update() {
-                // Store previous position for trail
-                this.trail.push({x: this.x, y: this.y});
-                if (this.trail.length > this.maxTrailLength) {
-                    this.trail.shift();
-                }
+                this.x += this.speedX;
+                this.y += this.speedY;
                 
-                // Wave-like movement
-                this.x += this.speedX + Math.sin(Date.now() * this.waveFrequency) * this.waveAmplitude;
-                this.y += this.speedY + Math.cos(Date.now() * this.waveFrequency) * this.waveAmplitude;
-                
-                // Bounce off walls with quantum tunneling effect
-                if (this.x > canvas.width || this.x < 0) {
-                    if (Math.random() > 0.95) {
-                        // Quantum tunneling - appear on opposite side
-                        this.x = this.x > canvas.width ? 0 : canvas.width;
-                    } else {
-                        this.speedX *= -1;
-                    }
-                }
-                if (this.y > canvas.height || this.y < 0) {
-                    if (Math.random() > 0.95) {
-                        // Quantum tunneling
-                        this.y = this.y > canvas.height ? 0 : canvas.height;
-                    } else {
-                        this.speedY *= -1;
-                    }
-                }
-                
-                // Pulsing effect
-                this.size = Math.sin(Date.now() * this.pulseSpeed + this.pulseOffset) * 2 + 3;
+                // Simple boundary check
+                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
             }
             
             draw() {
-                // Draw trail
-                for (let i = 0; i < this.trail.length; i++) {
-                    const point = this.trail[i];
-                    const trailOpacity = this.opacity * (i / this.trail.length) * 0.5;
-                    
-                    ctx.beginPath();
-                    ctx.arc(point.x, point.y, this.size * (i / this.trail.length), 0, Math.PI * 2);
-                    ctx.fillStyle = this.color;
-                    ctx.globalAlpha = trailOpacity;
-                    ctx.fill();
-                }
-                
-                // Draw particle
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                
-                // Gradient fill
-                const gradient = ctx.createRadialGradient(
-                    this.x, this.y, 0,
-                    this.x, this.y, this.size * 2
-                );
-                gradient.addColorStop(0, this.color);
-                gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-                
-                ctx.fillStyle = gradient;
-                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = this.color;
                 ctx.fill();
-                
-                // Enhanced glow effect
-                ctx.shadowBlur = 25;
-                ctx.shadowColor = this.color;
-                
-                // Reset shadow for other drawings
-                ctx.shadowBlur = 0;
             }
         }
         
-        // Create particles
+        // Create optimized particles
         for (let i = 0; i < particleCount; i++) {
-            particles.push(new QuantumParticle());
+            particles.push(new Particle());
         }
         
-        // Connect particles with glowing lines
-        function connectParticles() {
-            for (let a = 0; a < particles.length; a++) {
-                for (let b = a; b < particles.length; b++) {
-                    const dx = particles[a].x - particles[b].x;
-                    const dy = particles[a].y - particles[b].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < 120) {
-                        const opacity = 1 - (distance / 120);
-                        
-                        // Create gradient for connection line
-                        const gradient = ctx.createLinearGradient(
-                            particles[a].x, particles[a].y,
-                            particles[b].x, particles[b].y
-                        );
-                        gradient.addColorStop(0, particles[a].color);
-                        gradient.addColorStop(1, particles[b].color);
-                        
-                        ctx.beginPath();
-                        ctx.strokeStyle = gradient;
-                        ctx.lineWidth = 1.5 * opacity;
-                        ctx.globalAlpha = opacity * 0.3;
-                        ctx.moveTo(particles[a].x, particles[a].y);
-                        ctx.lineTo(particles[b].x, particles[b].y);
-                        ctx.stroke();
-                        
-                        // Add glow to connections
-                        ctx.shadowBlur = 15 * opacity;
-                        ctx.shadowColor = particles[a].color;
-                    }
-                }
-            }
-        }
-        
-        // Create quantum energy bursts
-        function createEnergyBurst(x, y) {
-            const burstParticles = [];
-            const burstCount = 30;
-            
-            for (let i = 0; i < burstCount; i++) {
-                burstParticles.push({
-                    x: x,
-                    y: y,
-                    speedX: Math.random() * 10 - 5,
-                    speedY: Math.random() * 10 - 5,
-                    size: Math.random() * 5 + 2,
-                    color: Math.random() > 0.5 ? '#ff0080' : '#00ffaa',
-                    opacity: 1,
-                    decay: Math.random() * 0.02 + 0.01
-                });
-            }
-            
-            function animateBurst() {
-                burstParticles.forEach((p, index) => {
-                    p.x += p.speedX;
-                    p.y += p.speedY;
-                    p.opacity -= p.decay;
-                    
-                    if (p.opacity <= 0) {
-                        burstParticles.splice(index, 1);
-                    } else {
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                        ctx.fillStyle = p.color;
-                        ctx.globalAlpha = p.opacity;
-                        ctx.fill();
-                        ctx.shadowBlur = 20;
-                        ctx.shadowColor = p.color;
-                    }
+        // Optimized animation loop with frame limiting
+        function animateQuantum(timestamp) {
+            if (!lastTimestamp || timestamp - lastTimestamp >= frameInterval) {
+                lastTimestamp = timestamp;
+                
+                // Clear with slight transparency for trail effect
+                ctx.fillStyle = 'rgba(10, 15, 31, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Update and draw particles
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
                 });
                 
-                if (burstParticles.length > 0) {
-                    requestAnimationFrame(animateBurst);
+                // Simple connections between close particles (optimized)
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < Math.min(particles.length, i + 10); j++) { // Limit checks
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 100) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(0, 212, 255, ${0.1 * (1 - distance/100)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
                 }
             }
             
-            animateBurst();
+            animationFrameId = requestAnimationFrame(animateQuantum);
         }
         
-        // Random energy bursts
-        setInterval(() => {
-            if (Math.random() > 0.7) {
-                createEnergyBurst(
-                    Math.random() * canvas.width,
-                    Math.random() * canvas.height
-                );
-            }
-        }, 3000);
-        
-        // Animation loop
-        function animateQuantum() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Add subtle background gradient
-            const gradient = ctx.createRadialGradient(
-                canvas.width/2, canvas.height/2, 0,
-                canvas.width/2, canvas.height/2, canvas.width
-            );
-            gradient.addColorStop(0, 'rgba(128, 0, 255, 0.05)');
-            gradient.addColorStop(1, 'rgba(5, 5, 16, 0)');
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-            
-            connectParticles();
-            
-            requestAnimationFrame(animateQuantum);
-        }
-        
-        animateQuantum();
-        
-        // Timeline scroll animation
-        const timelineItems = document.querySelectorAll('.timeline-item-4d');
-        
-        function checkTimelineVisibility() {
-            timelineItems.forEach(item => {
-                const rect = item.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.8) {
-                    item.classList.add('visible');
+        // Start animation only when page is visible
+        function handleVisibilityChange() {
+            if (document.hidden) {
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                    animationFrameId = null;
                 }
-            });
+            } else {
+                if (!animationFrameId) {
+                    animationFrameId = requestAnimationFrame(animateQuantum);
+                }
+            }
         }
         
-        window.addEventListener('scroll', checkTimelineVisibility);
-        checkTimelineVisibility(); // Check on load
+        document.addEventListener('visibilitychange', handleVisibilityChange);
         
-        // Smooth scrolling for navigation
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1400,93 +819,66 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
-                    
-                    // Create energy burst at click location
-                    const rect = this.getBoundingClientRect();
-                    createEnergyBurst(
-                        rect.left + rect.width/2,
-                        rect.top + rect.height/2
-                    );
                 }
             });
         });
         
-        // Interactive hologram effect
-        const hologram = document.querySelector('.photo-hologram');
-        if (hologram) {
-            document.addEventListener('mousemove', (e) => {
-                const x = (window.innerWidth - e.clientX * 2) / 80;
-                const y = (window.innerHeight - e.clientY * 2) / 80;
-                
-                hologram.style.transform = `translate(-50%, -50%) rotateX(${y}deg) rotateY(${x}deg) scale(1.05)`;
-            });
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load profile photo
+            loadProfilePhoto();
             
-            document.addEventListener('mouseleave', () => {
-                hologram.style.transform = `translate(-50%, -50%)`;
-            });
-        }
-        
-        // Quantum typing effect with enhanced styling
-        const typewriterText = document.querySelector('.typewriter');
-        if (typewriterText) {
-            const originalText = typewriterText.textContent;
-            typewriterText.textContent = '';
-            let i = 0;
-            
-            function typeWriter() {
-                if (i < originalText.length) {
-                    typewriterText.textContent += originalText.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 120);
-                } else {
-                    // Keep blinking cursor
-                    typewriterText.style.animation = 'blink-caret 200s step-end infinite';
-                    typewriterText.style.borderRight = '4px solid var(--secondary)';
-                }
+            // Start animation
+            if (!document.hidden) {
+                animationFrameId = requestAnimationFrame(animateQuantum);
             }
             
-            setTimeout(typeWriter, 1500);
-        }
-        
-        // Add interactive particle effects on hover
-        document.querySelectorAll('.card-4d, .skill-orb, .btn-4d').forEach(element => {
-            element.addEventListener('mouseenter', function(e) {
-                const rect = this.getBoundingClientRect();
-                if (Math.random() > 0.5) {
-                    createEnergyBurst(
-                        rect.left + rect.width/2,
-                        rect.top + rect.height/2
-                    );
-                }
-            });
-        });
-        
-        // Add scroll-based particle density effect
-        let lastScrollY = window.scrollY;
-        window.addEventListener('scroll', () => {
-            const scrollDelta = Math.abs(window.scrollY - lastScrollY);
+            // Initialize scroll effects
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
             
-            // Increase particle activity on fast scrolling
-            if (scrollDelta > 10) {
-                particles.forEach(p => {
-                    p.speedX *= 1.05;
-                    p.speedY *= 1.05;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
                 });
-                
-                // Create burst at random position
-                if (Math.random() > 0.8) {
-                    createEnergyBurst(
-                        Math.random() * canvas.width,
-                        Math.random() * canvas.height
-                    );
+            }, observerOptions);
+            
+            // Observe cards for animations
+            document.querySelectorAll('.card-4d').forEach(card => {
+                observer.observe(card);
+            });
+        });
+        
+        // Performance optimization: Reduce particle count on mobile
+        function adjustForPerformance() {
+            const isMobile = window.innerWidth <= 768;
+            const targetCount = isMobile ? 30 : 50;
+            
+            if (particles.length > targetCount) {
+                particles.length = targetCount;
+            } else if (particles.length < targetCount) {
+                while (particles.length < targetCount) {
+                    particles.push(new Particle());
                 }
             }
-            
-            lastScrollY = window.scrollY;
+        }
+        
+        window.addEventListener('resize', adjustForPerformance);
+        adjustForPerformance();
+        
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
         });
     </script>
 </body>
